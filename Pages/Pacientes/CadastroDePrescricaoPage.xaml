@@ -1,0 +1,204 @@
+﻿<Page
+    x:Class="UPW.Pages.Pacientes.CadastroDePrescricaoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UPW.Pages.Pacientes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ScrollViewer HorizontalScrollMode="Auto"
+              VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock FontSize="30"
+                       Text="Nova Prescricao"
+                       Margin="60"
+                       FontWeight="Bold"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="20"
+                                   Text="Nome do medicamento"
+                                   Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="NameBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                               Text="Dosagem Precrita"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="DosagemBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                                   Text="Data de Inicio"
+                                   Margin="60, 0, 60, 5"/>
+                        <CalendarDatePicker FontSize="20"
+                                            Margin="60, 0, 60, 40"
+                                            BorderThickness="0, 0, 0, 1"
+                                            BorderBrush="#FF1E6BFA"
+                                            Width="1300"/>
+                        <RadioButton x:Name="RadioContinuo"
+                                     FontSize="20"
+                                     Margin="60, 0, 60, 20"
+                                     Content="Uso Continuo"
+                                     GroupName="Continuo"
+                                     Click="RadioContinuo_Click"/>
+                        <RadioButton x:Name="RadioControl"
+                                     FontSize="20"
+                                     Margin="60, 0, 60, 20"
+                                     Content="Remedio Controlado"
+                                     GroupName="Controlado"
+                                     Click="RadioControl_Click"/>
+                        <RadioButton x:Name="CadastrarMed"
+                                     FontSize="20"
+                                     Margin="60, 0, 60, 20"
+                                     Content="Cadastrar Medicamento"
+                                     GroupName="Cadastor Medicamento"
+                                     Click="CadastrarMed_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock FontSize="20"
+                               Text="Classe Terapeutica"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="ClasseBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                               Text="Intervalo entre doses"
+                               Margin="60, 0, 60, 5"/>
+                        <ComboBox FontSize="20"
+                                  Margin="60, 0, 60, 5">
+                            <ComboBoxItem Content="2 horas"/>
+                            <ComboBoxItem Content="3 horas"/>
+                            <ComboBoxItem Content="4 horas"/>
+                            <ComboBoxItem Content="6 horas"/>
+                            <ComboBoxItem Content="8 horas"/>
+                            <ComboBoxItem Content="10 horas"/>
+                            <ComboBoxItem Content="12 horas"/>
+                            <ComboBoxItem Content="1 dia"/>
+                            <ComboBoxItem Content="1 semana"/>
+                            <ComboBoxItem Content="1 mês"/>
+                        </ComboBox>
+                        <TextBlock FontSize="20"
+                               Text="Classe Regulatoria"
+                               Margin="60, 0, 60, 5"/>
+                        <ComboBox FontSize="20"
+                                  Margin="60, 0, 60, 5">
+                            <ComboBoxItem Content="Genérico"/>
+                            <ComboBoxItem Content="Original"/>
+                            <ComboBoxItem Content="Manipulado"/>
+                            <ComboBoxItem Content="Genérico"/>
+                            <ComboBoxItem Content="Similar"/>
+                            <ComboBoxItem Content="Fitoterápico"/>
+                            <ComboBoxItem Content="Biologico"/>
+                            <ComboBoxItem Content="Específico"/>
+                            <ComboBoxItem Content="Novo"/>
+                        </ComboBox>
+                        <TextBlock FontSize="20"
+                               Text="Modo de aplicação"
+                               Margin="60, 0, 60, 5"/>
+                        <ComboBox FontSize="20"
+                                  Margin="60, 0, 60, 5">
+                            <ComboBoxItem Content="Oral"/>
+                            <ComboBoxItem Content="Cutânea"/>
+                            <ComboBoxItem Content="Nasal"/>
+                            <ComboBoxItem Content="Retal"/>
+                            <ComboBoxItem Content="Intra-vesical"/>
+                            <ComboBoxItem Content="Nebulização"/>
+                            <ComboBoxItem Content="Ocular"/>
+                            <ComboBoxItem Content="Sublingual"/>
+                            <ComboBoxItem Content="Parental"/>
+                        </ComboBox>
+                        <TextBlock FontSize="20"
+                               Text="Dosagem"
+                               Margin="60, 0, 60, 5"/>
+                        <ComboBox FontSize="20"
+                                  Margin="60, 0, 60, 5">
+                            <ComboBoxItem Content="Ml"/>
+                            <ComboBoxItem Content="Gotas"/>
+                            <ComboBoxItem Content="Comprimido"/>
+                            <ComboBoxItem Content="Unidade"/>
+                            <ComboBoxItem Content="Mg"/>
+                            <ComboBoxItem Content="Gramas"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Visibility="{x:Bind CadastrarMed.IsChecked, Mode=OneWay}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="20"
+                                   Text="Dosagem Medicamento"
+                                   Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="DosagemMedicamento"
+                                 FontSize="20"
+                                 Margin="60, 0, 60, 40"
+                                 BorderThickness="0, 0, 0, 1"
+                                 BorderBrush="#FF1E6BFA">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                               Text="Quantidade"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA">
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock FontSize="20"
+                               Text="Unidade da quantidade"
+                               Margin="60, 0, 60, 5"/>
+                        <ComboBox FontSize="20"
+                                  Margin="60, 0, 60, 5">
+                            <ComboBoxItem Content="Ml"/>
+                            <ComboBoxItem Content="Comprimido"/>
+                            <ComboBoxItem Content="Unitário"/>
+                            <ComboBoxItem Content="Mg"/>
+                            <ComboBoxItem Content="Gramas"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="CadastrarOutraPrescricao"
+                            Margin="60, 90, 0, 20"
+                            Content="Cadastrar Outra Prescrição"
+                            FontSize="20"
+                            Foreground="White"
+                            Background="#FF1E6BFA"
+                            CornerRadius="10"/>
+                    <Button x:Name="Finalizar"
+                            Margin="60, 90, 0, 20"
+                            Content="Finalizar"
+                            FontSize="20"
+                            Foreground="White"
+                            Background="#FF1E6BFA"
+                            CornerRadius="10"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,158 @@
+﻿<Page
+    x:Class="UPW.Pages.Pacientes.CadastroPacientePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UPW.Pages.Pacientes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ScrollViewer HorizontalScrollMode="Auto"
+              VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock FontSize="30"
+                       Text="Novo Residente"
+                       Margin="60"
+                       FontWeight="Bold"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="20"
+                               Text="Nome"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="NameBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA"
+                             Text="{x:Bind Nome, Mode=TwoWay}">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                                   Text="Data de aniversário"
+                                   Margin="60, 0, 60, 5"/>
+                        <CalendarDatePicker x:Name="DataPicker" 
+                                            FontSize="20"
+                                            Margin="60, 0, 60, 40"
+                                            BorderThickness="0, 0, 0, 1"
+                                            BorderBrush="#FF1E6BFA"
+                                            Width="1300"/>
+                        <TextBlock FontSize="20"
+                               Text="Convenio"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="ConvenioBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA"
+                             Text="{x:Bind Convenio, Mode=TwoWay}">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                               Text="Gênero"
+                               Margin="60, 0, 60, 5"/>
+                        <RadioButton x:Name="RadioMasculino" 
+                                     Content="Masculino"
+                                     FontSize="20"
+                                     Margin="60, 0, 60, 0"
+                                     VerticalAlignment="Center"
+                                     VerticalContentAlignment="Center"/>
+                        <RadioButton x:Name="RadioFeminino" 
+                                     Content="Feminino"
+                                     FontSize="20"
+                                     Margin="60, 0, 60, 0"
+                                     VerticalAlignment="Center"
+                                     VerticalContentAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBlock FontSize="20"
+                               Text="RG"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="RGBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA"
+                             Text="{x:Bind RG, Mode=TwoWay}">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                               Text="CPF"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="CPFBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA"
+                             Text="{x:Bind CPF, Mode=TwoWay}">
+                        </TextBox>
+                        <TextBlock FontSize="20"
+                               Text="SUS"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="SUSBox"
+                             FontSize="20"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="0, 0, 0, 1"
+                             BorderBrush="#FF1E6BFA"
+                             Text="{x:Bind SUS, Mode=TwoWay}">
+                        </TextBox>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="0, 20, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="20"
+                               Text="Observações"
+                               Margin="60, 0, 60, 5"/>
+                        <TextBox x:Name="ObservacoesBox"
+                             FontSize="20"
+                             TextWrapping="Wrap"
+                             MinHeight="100"
+                             Margin="60, 0, 60, 40"
+                             BorderThickness="1"
+                             BorderBrush="Black"
+                             Text="{x:Bind Observacoes, Mode=TwoWay}">
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock FontSize="20"
+                               Text="Alergias"
+                               Margin="60, 0, 60, 5"/>
+                            <TextBox x:Name="AlergiaBox"
+                                 TextWrapping="Wrap"
+                                 FontSize="20"
+                                 MinHeight="100"
+                                 Margin="60, 0, 60, 40"
+                                 BorderThickness="1"
+                                 BorderBrush="Black"
+                                 Text="{x:Bind Alergias, Mode=TwoWay}">
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+
+                <Button x:Name="CadastrarResponsável"
+                    Margin="60, 90, 0, 20"
+                    Content="Cadastrar Responsável"
+                    FontSize="20"
+                    Foreground="White"
+                    Background="#FF1E6BFA"
+                    CornerRadius="10"
+                    Click="CadastrarResponsável_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
